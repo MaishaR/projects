@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" >
+<link rel="stylesheet" href="wfestival_style.css">
+</head>
+
+<body id="homePage">
+<div class="border">
+<div class="body">
+<!--Student 2 (2.) links - Navigation bar-->
+<div class="navbar">
+  <a href="#">Home</a>
+  <a href="artists.html">Summer 2018</a>
+  <a href="shop.html">Buy Tickets</a>
+  <a href="sitemap.html">Sitemap</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="quiz.html">Quiz</a>
+  <a href="aboutUs.html">About Us</a>
+</div>
+
+<!--colour change dropdowns -->
+<div align="right">
+<!--Student 4 (8.) - dropdown to change background colour-->
+<form>
+  Background color:
+  <!-- ref: https://stackoverflow.com/questions/36373306/changing-background-colour-with-drop-down-menu -->
+ 	<select id="background" onchange="updateBackgroundColour(this)">
+		<option value="#ffffff">Original</option>
+    	<option value="#dffff7">Lighter blue</option>
+    	<option value="#abe5d7">Darker blue</option>
+  	</select>
+</form>
+<!--Student 4 (8.) - Text change-->
+<form>
+	Text colour:
+ 	<select id="text" onchange="updateColour(this)">
+		<option value="#000000">Black</option>
+    	<option value="#520000">Maroon</option>
+    	<option value="#003B27">Dark Green</option>
+  	</select>
+
+</form>
+<!--Student 1 (task no.) - font size change-->
+<div class="fontSizeChange">
+  Font size: 
+  <button id="increaseSize" onclick="changeFontSize('homePage',2)">+</button>
+  <button id="decreaseSize" onclick="changeFontSize('homePage',-2)">-</button>
+</div>	
+<!--..........-->
+
+</div>
+
+
+<!--countdown-->
+<div class="countdown">
+  <h1>Festival Countdown:</h1>
+</div>
+
+<p id="demo"></p>
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("July 19, 2018 15:37:25").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
+    
+    // Find the distance between now an the count down date
+    var distance = countDownDate - now;
+    
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Output the result in an element with id="demo"
+    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+    
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+}, 1000);
+</script>
+<body>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 4</div>
+  <img src="images/ed 2.jpg" style="width:100%">
+  <div class="text">ED SHEERAN</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 4</div>
+  <img src="images/katyperry.png" style="width:100%">
+  <div class="text">KATY PERRY</div>
+
+  
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 4</div>
+  <img src="images/adelee.jpg" style="width:100%">
+  <div class="text">ADELE</div>
+
+  </div>
+
+<div class="mySlides fade">
+  <div class="numbertext">4 / 4</div>
+  <img src="images/bruno.jpg" style="width:100%">
+  <div class="text">BRUNO MARS</div> 
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+  <span class="dot" onclick="currentSlide(4)"></span> 
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<!--dates with pictures-->
+<div class="dates">
+<table>
+		<tr>
+			<td>
+      <div class="imgContainer">
+				<div>
+					<img src="images/pop.jpg" height="150px"/>
+				</div>
+				<div class="imgButton">
+					<button value="purchase" onClick="shop.html">Purchase tickets</button>
+				</div>
+         </div>
+			</td>
+      <td>
+      <div class="imgContainer">
+				<div>
+					<img src="images/latin.jpg" height="150px"/>
+				</div>
+				<div class="imgButton">
+					<button value="purchase" onClick="shop.html">Purchase tickets</button>
+				</div>
+         </div>
+			</td>
+			<td>
+      <div class="imgContainer">
+				<div>
+					<img src="images/rap.jpg" height="150px"/>
+				</div>
+				<div class="imgButton">
+					<button value="purchase" onClick="shop.html">Purchase tickets</button>
+				</div>
+         </div>
+			</td>
+			<td>
+      <div class="imgContainer">
+				<div>
+					<img src="images/randb.jpg" height="150px"/>
+				</div>
+				<div class="imgButton">
+					<button value="purchase" onClick="shop.html">Purchase tickets</button>
+				</div>
+         </div>
+			</td>
+		</tr>
+	</table>
+</div>
+</div>
+</div>
+<br><br>
+<div class="comments">
+  <form>
+      <fieldset>
+      <legend>Comments section</legend>
+      <label for="name">Name: </label>
+      <input type="text" name="Name" id="name" placeholder="Name" value="">
+      <br><br>
+      <label for="emailAddress">Email: </label>
+      <input type="emailAddress" name="EmailAddress" id="emailAddress" placeholder="Email Address" value="">
+    
+      <br><br>
+      <label> Rating: </label>
+      <input type="radio" name="requirments" value="excellent">Excellent
+      <input type="radio" name="requirments" value="good"> Good
+      <input type="radio" name="requirments" value="okay"> Okay
+      <input type="radio" name="requirments" value="bad"> Bad
+      <input type="radio" name="requirments" value="terrible"> Terrible
+      <br><br>
+      <label for="comment">Add a comment:</label>
+      <textarea name="Comment" rows="10" cols="50" id="comment" value=""> </textarea>
+      <br><br>
+    </fieldset>
+    <fieldset id="options">
+      
+      <input id="send" type="submit" name="Send" value="SEND" onclick="return popup();">
+      <script>
+        
+        function popup(){
+          var rating = document.getElementsByName('requirments');
+          var comment = document.getElementById('comment');
+          pComment = comment.value;
+          var name = document.getElementById('name');
+          pName = name.value;
+          var ratingValue = false;
+
+          for (var i = 0; i < rating.length; i++) {
+            if(rating[i].checked == true) {
+              ratingValue = true;
+              siteRating = rating[i].value;
+            }
+          }
+
+          if(document.getElementById('name').value.length == 0) 
+            alert("Please enter your name")
+          else if(document.getElementById('emailAddress').value.length == 0)
+            alert("Please enter your email")
+           else if(!ratingValue) 
+              alert("choose your rating")
+          else if(document.getElementById('comment').value.length == 0)
+            alert("Please enter your comment")
+          else
+            alert("Dear "+ pName + ",  Thank you very much for your feedback. You have rated our website as " + siteRating + " and your comment was " + pComment + ".")
+    }
+      </script>
+    </fieldset>
+  </form>
+ 
+
+<div class="footer">
+
+  <a href="cvmaisha.html">Maisha Rahman - w1636541 - CV</a>
+  <br>
+  &copy; Westminster Festival 2018. All rights reserved. See our <u>terms of use</u> and <u>privacy policy</u>.
+
+</div>
+
+<!--dropdown Background colour-->
+<script>
+function updateBackgroundColour(selectElem) {
+  var i = selectElem.selectedIndex; // Get the selected option's index.
+  if (i < 0) {
+    return; // Nothing is selected.
+  }
+  // Set the background-color CSS attribute of the <body> element to 
+  // the value attribute of the selected option in our <select> element.
+  document.body.style.backgroundColor = selectElem.options[i].value;
+}
+</script>
+<!--dropdown text colour-->
+<script>
+function updateColour(selectElement) {
+  var b = selectElement.selectedIndex; // Get the selected option's index.
+  if (b < 0) {
+    return; // Nothing is selected.
+  }
+  // Set the background-color CSS attribute of the <body> element to 
+  // the value attribute of the selected option in our <select> element.
+  document.body.style.color = selectElement.options[b].value;
+}
+</script>
+<!--font size-->
+<script>
+  function changeFontSize(id, sizeFactor){
+
+    txt = document.getElementById(id);
+    style = window.getComputedStyle(txt, null).getPropertyValue('font-size');
+    currentSize = parseInt(style);
+    txt.style.fontSize = (currentSize + sizeFactor) + 'px';
+  }
+</script>
+
+</body>
+</html> 
